@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Art Studio - Explore cutting-edge digital artworks, tech-inspired designs, and creative digital illustrations by _pencil__creations_">
+    <meta name="keywords" content="digital art, tech art, portfolio, digital design, creative artwork, illustration">
+    <meta name="author" content="_pencil__creations_">
+    <meta property="og:title" content="Digital Art Studio - Tech-Inspired Portfolio">
+    <meta property="og:description" content="Transforming digital concepts into stunning visual experiences through cutting-edge technical artistry">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="spider-man-marvel-superheroes-3840x2160-1127.jpg">
+    <title>Digital Art Studio - Tech-Inspired Portfolio | _pencil__creations_</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+</head>
+<body>
+    <!-- Enhanced Loading Screen -->
+    <div class="loader-wrapper">
+        <div class="loader-container">
+            <div class="loader-sphere">
+                <div class="sphere-inner"></div>
+                <div class="sphere-glow"></div>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="loading-text">Initializing Digital Studio...</div>
+                <div class="loading-percentage">0%</div>
+            </div>
+            <div class="floating-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Dev <span class="gradient-text">Arts</span></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-sparkles"></i>
+                <span>Premium Portfolio Experience</span>
+            </div>
+            <h1 class="hero-title">
+                <span>Digital</span>
+                <span class="gradient-text" data-text="Art">Art</span>
+                <span>Studio</span>
+            </h1>
+            <p class="hero-subtitle">Transforming digital concepts into stunning visual experiences through cutting-edge technical artistry and innovative design</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Artworks</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Clients</div>
+                </div>
+            </div>
+            
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn btn-primary">
+                    <span>Explore Portfolio</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="https://instagram.com/_pencil__creations_" class="btn btn-instagram" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                    <span>Follow on Instagram</span>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span>Get In Touch</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-palette"></i>
+                    <span>Featured Works</span>
+                </div>
+                <h2 class="section-title">
+                    Digital <span class="gradient-text" data-text="Art">Art</span> Portfolio
+                </h2>
+                <p class="section-subtitle">A curated collection of digital artworks showcasing technical innovation, creative vision, and cutting-edge design techniques</p>
+            </div>
+
+            <!-- Pinterest-style Search & Filter -->
+            <div class="pinterest-search-container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search digital art..." id="searchInput">
+                </div>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    <span>All</span>
+                </button>
+                <button class="filter-btn" data-filter="portraits">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Portraits</span>
+                </button>
+                <button class="filter-btn" data-filter="nature">
+                    <i class="fas fa-leaf"></i>
+                    <span>Nature</span>
+                </button>
+                <button class="filter-btn" data-filter="abstract">
+                    <i class="fas fa-shapes"></i>
+                    <span>Abstract</span>
+                </button>
+                <button class="filter-btn" data-filter="architecture">
+                    <i class="fas fa-building"></i>
+                    <span>Architecture</span>
+                </button>
+            </div>
+
+            <!-- Pinterest-style Portfolio Grid -->
+            <div class="portfolio-container">
+                <div class="masonry-grid" id="portfolioMasonry">
+                    <!-- Items will be dynamically generated -->
+                </div>
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i>
+                        <span>Load More</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-badge">
+                        <i class="fas fa-user-circle"></i>
+                        <span>About Artist</span>
+                    </div>
+                    <h2 class="section-title">
+                        The <span class="gradient-text" data-text="Digital">Digital</span> Journey
+                    </h2>
+                    <p>Welcome to my digital art universe where technology meets creativity through advanced design techniques. Each pixel tells a story, every gradient conveys emotion, and every piece represents the fusion of technical precision and artistic vision.</p>
+                    
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Traditional Sketching</h4>
+                                <p>Mastery in pencil, charcoal, and ink techniques</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Digital Art</h4>
+                                <p>Modern digital illustration and concept art</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h4>Artistic Vision</h4>
+                                <p>Unique perspective and creative storytelling</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="artist-card">
+                        <div class="artist-avatar">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Creative Artist</h3>
+                        <p>Specializing in detailed sketches and artistic illustrations</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="number">5+</span>
+                                <span class="label">Years</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">100+</span>
+                                <span class="label">Works</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-rocket"></i>
+                    <span>Let's Connect</span>
+                </div>
+                <h2 class="section-title">
+                    Ready To <span class="gradient-text">Collaborate?</span>
+                </h2>
+                <p class="section-subtitle">Transform your creative vision into stunning artwork. Let's discuss your next artistic project.</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <span class="label">Email</span>
+                            <span class="value">gamingspider0005@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <span class="label">Phone</span>
+                            <span class="value">+1 (555) 123-4567</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <span class="label">Location</span>
+                            <span class="value">Art Studio, Creative District</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/_pencil__creations_" class="social-link instagram-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                        <div class="social-stats">Follow for daily updates</div>
+                    </a>
+                    <a href="#" class="social-link twitter-link">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                        <div class="social-stats">Latest news</div>
+                    </a>
+                    <a href="#" class="social-link behance-link">
+                        <i class="fab fa-behance"></i>
+                        <span>Behance</span>
+                        <div class="social-stats">Portfolio showcase</div>
+                    </a>
+                    <a href="#" class="social-link dribbble-link">
+                        <i class="fab fa-dribbble"></i>
+                        <span>Dribbble</span>
+                        <div class="social-stats">Design inspiration</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-image-container">
+                <img class="modal-image" id="modalImage">
+            </div>
+            <div class="modal-info">
+                <h3 class="modal-title"></h3>
+                <div class="modal-category"></div>
+                <p class="modal-description"></p>
+                <div class="modal-actions">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-heart"></i>
+                        <span>Like</span>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-share"></i>
+                        <span>Share</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    
+
+</body>
+</html> 
