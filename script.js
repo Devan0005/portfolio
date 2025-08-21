@@ -6,7 +6,7 @@ const portfolioData = [
         id: 1,
         title: "Neon Digital Portrait",
         category: "portraits",
-        image: "SaveClip.App_525973114_17925050178097312_1147935490967172034_n.jpg",
+        image: "./photos/SaveClip.App_525973114_17925050178097312_1147935490967172034_n.jpg",
         description: "A captivating digital portrait with neon-inspired color schemes and futuristic elements.",
         likes: 247,
         saves: 89
@@ -15,7 +15,7 @@ const portfolioData = [
         id: 2,
         title: "Abstract Tech Flow",
         category: "abstract",
-        image: "SaveClip.App_524687279_17891629392291569_2392907753566285349_n.jpg",
+        image: "./photos/SaveClip.App_524687279_17891629392291569_2392907753566285349_n.jpg",
         description: "An abstract representation of data flow through digital networks and technological landscapes.",
         likes: 156,
         saves: 67
@@ -24,7 +24,7 @@ const portfolioData = [
         id: 3,
         title: "Cyberpunk Character",
         category: "portraits",
-        image: "SaveClip.App_524424505_17891629581291569_7204193818581872382_n.jpg",
+        image: "./photos/SaveClip.App_524424505_17891629581291569_7204193818581872382_n.jpg",
         description: "A cyberpunk-inspired character design with holographic elements and neon aesthetics.",
         likes: 324,
         saves: 142
@@ -33,7 +33,7 @@ const portfolioData = [
         id: 4,
         title: "Digital Landscape",
         category: "nature",
-        image: "SaveClip.App_521003233_17891700453292519_877759951171763294_n.jpg",
+        image: "./photos/SaveClip.App_521003233_17891700453292519_877759951171763294_n.jpg",
         description: "A surreal digital landscape blending natural forms with technological elements.",
         likes: 198,
         saves: 73
@@ -42,7 +42,7 @@ const portfolioData = [
         id: 5,
         title: "Holographic Dreams",
         category: "abstract",
-        image: "SaveClip.App_523946413_17891700384292519_5698979337809646333_n.jpg",
+        image: "./photos/SaveClip.App_523946413_17891700384292519_5698979337809646333_n.jpg",
         description: "An abstract exploration of holographic projections and digital consciousness.",
         likes: 289,
         saves: 156
@@ -51,7 +51,7 @@ const portfolioData = [
         id: 6,
         title: "Future Vision",
         category: "portraits",
-        image: "SaveClip.App_524423493_17891700465292519_6184063264034292302_n.jpg",
+        image: "./photos/SaveClip.App_524423493_17891700465292519_6184063264034292302_n.jpg",
         description: "A futuristic portrait showcasing advanced digital art techniques and sci-fi aesthetics.",
         likes: 412,
         saves: 201
@@ -60,7 +60,7 @@ const portfolioData = [
         id: 7,
         title: "Bio-Digital Fusion",
         category: "nature",
-        image: "SaveClip.App_524427476_17891700345292519_8909883975469118969_n.jpg",
+        image: "./photos/SaveClip.App_524427476_17891700345292519_8909883975469118969_n.jpg",
         description: "An exploration of the fusion between biological forms and digital enhancement.",
         likes: 176,
         saves: 94
@@ -69,7 +69,7 @@ const portfolioData = [
         id: 8,
         title: "Matrix Architecture",
         category: "architecture",
-        image: "SaveClip.App_524718160_17925049998097312_5504156817079472116_n.jpg",
+        image: "./photos/SaveClip.App_524718160_17925049998097312_5504156817079472116_n.jpg",
         description: "Architectural design inspired by digital matrices and virtual reality environments.",
         likes: 233,
         saves: 118
@@ -78,7 +78,7 @@ const portfolioData = [
         id: 9,
         title: "Spider-Man Tech Suit",
         category: "portraits",
-        image: "spider-man-red-logo-4k-75gk9y4ena7trtqu.jpg",
+        image: "./photos/spider-man-red-logo-4k-75gk9y4ena7trtqu.jpg",
         description: "A high-tech interpretation of the iconic Spider-Man suit with digital enhancements.",
         likes: 567,
         saves: 289
@@ -87,7 +87,7 @@ const portfolioData = [
         id: 10,
         title: "Marvel Digital Universe",
         category: "portraits",
-        image: "spider-man-marvel-superheroes-3840x2160-1127.jpg",
+        image: "./photos/spider-man-marvel-superheroes-3840x2160-1127.jpg",
         description: "An epic digital representation of the Marvel universe with advanced visual effects.",
         likes: 743,
         saves: 356
@@ -527,7 +527,14 @@ function handleImageLoading() {
         });
         
         img.addEventListener('error', function() {
-            this.src = 'https://via.placeholder.com/600x400/667eea/ffffff?text=Portfolio+Image';
+            console.warn('Image failed to load:', this.src);
+            // Try loading from root directory as fallback
+            if (this.src.includes('./photos/')) {
+                this.src = this.src.replace('./photos/', './');
+            } else {
+                // Final fallback to placeholder
+                this.src = 'https://via.placeholder.com/600x400/667eea/ffffff?text=Portfolio+Image';
+            }
             this.style.opacity = '1';
         });
     });
