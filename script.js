@@ -36,7 +36,8 @@ const photoList = [
     "SaveClip.App_524427476_17891700345292519_8909883975469118969_n.jpg",
     "SaveClip.App_524718160_17925049998097312_5504156817079472116_n.jpg",
     "spider-man-red-logo-4k-75gk9y4ena7trtqu.jpg",
-    "spider-man-marvel-superheroes-3840x2160-1127.jpg"
+    "spider-man-marvel-superheroes-3840x2160-1127.jpg",
+    "IMG_20230228_085021-01-01.jpeg"
 ];
 
 // OPTIONAL: Custom titles and descriptions (override auto-generation)
@@ -592,4 +593,5 @@ document.addEventListener('DOMContentLoaded', handleImageLoading);
 // Initialize parallax effects
 window.addEventListener('load', () => {
     setupParallax();
+
 }); 
