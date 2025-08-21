@@ -1,98 +1,144 @@
 // ===== MODERN PORTFOLIO JAVASCRIPT =====
 
-// Portfolio Data
-const portfolioData = [
-    {
-        id: 1,
-        title: "Neon Digital Portrait",
-        category: "portraits",
-        image: "./photos/SaveClip.App_525973114_17925050178097312_1147935490967172034_n.jpg",
-        description: "A captivating digital portrait with neon-inspired color schemes and futuristic elements.",
-        likes: 247,
-        saves: 89
-    },
-    {
-        id: 2,
-        title: "Abstract Tech Flow",
-        category: "abstract",
-        image: "./photos/SaveClip.App_524687279_17891629392291569_2392907753566285349_n.jpg",
-        description: "An abstract representation of data flow through digital networks and technological landscapes.",
-        likes: 156,
-        saves: 67
-    },
-    {
-        id: 3,
-        title: "Cyberpunk Character",
-        category: "portraits",
-        image: "./photos/SaveClip.App_524424505_17891629581291569_7204193818581872382_n.jpg",
-        description: "A cyberpunk-inspired character design with holographic elements and neon aesthetics.",
-        likes: 324,
-        saves: 142
-    },
-    {
-        id: 4,
-        title: "Digital Landscape",
-        category: "nature",
-        image: "./photos/SaveClip.App_521003233_17891700453292519_877759951171763294_n.jpg",
-        description: "A surreal digital landscape blending natural forms with technological elements.",
-        likes: 198,
-        saves: 73
-    },
-    {
-        id: 5,
-        title: "Holographic Dreams",
-        category: "abstract",
-        image: "./photos/SaveClip.App_523946413_17891700384292519_5698979337809646333_n.jpg",
-        description: "An abstract exploration of holographic projections and digital consciousness.",
-        likes: 289,
-        saves: 156
-    },
-    {
-        id: 6,
-        title: "Future Vision",
-        category: "portraits",
-        image: "./photos/SaveClip.App_524423493_17891700465292519_6184063264034292302_n.jpg",
-        description: "A futuristic portrait showcasing advanced digital art techniques and sci-fi aesthetics.",
-        likes: 412,
-        saves: 201
-    },
-    {
-        id: 7,
-        title: "Bio-Digital Fusion",
-        category: "nature",
-        image: "./photos/SaveClip.App_524427476_17891700345292519_8909883975469118969_n.jpg",
-        description: "An exploration of the fusion between biological forms and digital enhancement.",
-        likes: 176,
-        saves: 94
-    },
-    {
-        id: 8,
-        title: "Matrix Architecture",
-        category: "architecture",
-        image: "./photos/SaveClip.App_524718160_17925049998097312_5504156817079472116_n.jpg",
-        description: "Architectural design inspired by digital matrices and virtual reality environments.",
-        likes: 233,
-        saves: 118
-    },
-    {
-        id: 9,
-        title: "Spider-Man Tech Suit",
-        category: "portraits",
-        image: "./photos/spider-man-red-logo-4k-75gk9y4ena7trtqu.jpg",
-        description: "A high-tech interpretation of the iconic Spider-Man suit with digital enhancements.",
-        likes: 567,
-        saves: 289
-    },
-    {
-        id: 10,
-        title: "Marvel Digital Universe",
-        category: "portraits",
-        image: "./photos/spider-man-marvel-superheroes-3840x2160-1127.jpg",
-        description: "An epic digital representation of the Marvel universe with advanced visual effects.",
-        likes: 743,
-        saves: 356
+/*
+🎨 DYNAMIC PHOTO SYSTEM - EASY PHOTO MANAGEMENT 🎨
+
+HOW TO ADD NEW PHOTOS:
+1. Upload your new photo to the 'photos/' folder
+2. Add the filename to the 'photoList' array below
+3. That's it! Your photo will automatically appear on the website
+
+OPTIONAL CUSTOMIZATION:
+- Want custom title/description? Add it to the 'customDetails' object
+- Categories: 'portraits', 'abstract', 'nature', 'architecture'
+- The system auto-detects categories but you can override them
+
+EXAMPLE:
+photoList = [..., "my-new-artwork.jpg"];
+customDetails = {
+    "my-new-artwork.jpg": {
+        title: "My Amazing Art",
+        description: "This is my latest creation...",
+        category: "portraits"
     }
+};
+*/
+
+// ===== DYNAMIC PHOTO SYSTEM =====
+// TO ADD NEW PHOTOS: Just add the filename to this list!
+const photoList = [
+    "SaveClip.App_525973114_17925050178097312_1147935490967172034_n.jpg",
+    "SaveClip.App_524687279_17891629392291569_2392907753566285349_n.jpg", 
+    "SaveClip.App_524424505_17891629581291569_7204193818581872382_n.jpg",
+    "SaveClip.App_521003233_17891700453292519_877759951171763294_n.jpg",
+    "SaveClip.App_523946413_17891700384292519_5698979337809646333_n.jpg",
+    "SaveClip.App_524423493_17891700465292519_6184063264034292302_n.jpg",
+    "SaveClip.App_524427476_17891700345292519_8909883975469118969_n.jpg",
+    "SaveClip.App_524718160_17925049998097312_5504156817079472116_n.jpg",
+    "spider-man-red-logo-4k-75gk9y4ena7trtqu.jpg",
+    "spider-man-marvel-superheroes-3840x2160-1127.jpg"
 ];
+
+// OPTIONAL: Custom titles and descriptions (override auto-generation)
+// Format: "filename.jpg": { title: "Custom Title", description: "Custom description", category: "portraits" }
+const customDetails = {
+    "spider-man-red-logo-4k-75gk9y4ena7trtqu.jpg": {
+        title: "Spider-Man Tech Suit",
+        description: "A high-tech interpretation of the iconic Spider-Man suit with digital enhancements.",
+        category: "portraits"
+    },
+    "spider-man-marvel-superheroes-3840x2160-1127.jpg": {
+        title: "Marvel Digital Universe", 
+        description: "An epic digital representation of the Marvel universe with advanced visual effects.",
+        category: "portraits"
+    }
+    // Add more custom details here if needed
+    // "your-photo.jpg": { title: "Your Title", description: "Your description", category: "portraits" }
+};
+
+// Smart category detection based on keywords in filename
+function detectCategory(filename) {
+    const name = filename.toLowerCase();
+    
+    if (name.includes('spider') || name.includes('character') || name.includes('portrait') || name.includes('face')) {
+        return 'portraits';
+    } else if (name.includes('architecture') || name.includes('building') || name.includes('structure')) {
+        return 'architecture';
+    } else if (name.includes('nature') || name.includes('landscape') || name.includes('tree') || name.includes('forest')) {
+        return 'nature';
+    } else {
+        return 'abstract';
+    }
+}
+
+// Generate smart titles based on filename
+function generateTitle(filename) {
+    const name = filename.replace(/\.[^/.]+$/, ""); // Remove extension
+    
+    // Generic title generation
+    const titles = [
+        'Digital Masterpiece', 'Creative Vision', 'Artistic Expression', 'Digital Art',
+        'Modern Creation', 'Visual Story', 'Artistic Journey', 'Creative Design',
+        'Digital Fantasy', 'Artistic Wonder', 'Creative Masterwork', 'Visual Poetry'
+    ];
+    
+    return titles[Math.floor(Math.random() * titles.length)];
+}
+
+// Generate descriptions based on category
+function generateDescription(category, title) {
+    const descriptions = {
+        portraits: [
+            'A captivating digital portrait showcasing advanced artistic techniques and creative vision.',
+            'An expressive character design with intricate details and vibrant digital artistry.',
+            'A stunning portrait that captures emotion and personality through digital art mastery.'
+        ],
+        abstract: [
+            'An abstract exploration of color, form, and digital creativity in modern art.',
+            'A mesmerizing abstract composition that challenges perception and inspires imagination.',
+            'An innovative abstract piece showcasing the fusion of technology and artistic expression.'
+        ],
+        nature: [
+            'A beautiful interpretation of natural forms through digital artistic techniques.',
+            'A serene digital landscape that captures the essence of nature\'s beauty.',
+            'An organic composition blending natural elements with digital artistry.'
+        ],
+        architecture: [
+            'An architectural visualization showcasing structural beauty and design innovation.',
+            'A stunning architectural composition highlighting form, space, and digital creativity.',
+            'A modern architectural interpretation through the lens of digital artistry.'
+        ]
+    };
+    
+    const categoryDescriptions = descriptions[category] || descriptions.abstract;
+    return categoryDescriptions[Math.floor(Math.random() * categoryDescriptions.length)];
+}
+
+// Auto-generate portfolio data from photo list
+function generatePortfolioData() {
+    return photoList.map((filename, index) => {
+        // Check if custom details exist for this file
+        const custom = customDetails[filename];
+        
+        // Use custom details if available, otherwise auto-generate
+        const category = custom?.category || detectCategory(filename);
+        const title = custom?.title || generateTitle(filename);
+        const description = custom?.description || generateDescription(category, title);
+        
+        return {
+            id: index + 1,
+            title: title,
+            category: category,
+            image: `./photos/${filename}`,
+            description: description,
+            likes: Math.floor(Math.random() * 500) + 50, // Random likes between 50-550
+            saves: Math.floor(Math.random() * 200) + 20   // Random saves between 20-220
+        };
+    });
+}
+
+// Generate portfolio data dynamically
+const portfolioData = generatePortfolioData();
 
 // DOM Elements
 const portfolioGrid = document.querySelector('#portfolioMasonry');
