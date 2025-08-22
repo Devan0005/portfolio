@@ -47,6 +47,10 @@ const customDetails = {
         description: "An epic digital representation of the Marvel universe with advanced visual effects.",
         category: "portraits"
     }
+     "IMG_20230228_085021-01-01.jpeg": {
+        title: "Thrisa portrait", 
+        description: "An epic digital representation of the Marvel universe with advanced visual effects.",
+        category: "portraits"
     // Add more custom details here if needed
     // "your-photo.jpg": { title: "Your Title", description: "Your description", category: "portraits" }
 };
@@ -609,4 +613,5 @@ window.addEventListener('load', () => {
     setupParallax();
 
 }); 
+
 
