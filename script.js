@@ -29,14 +29,6 @@ customDetails = {
 // ===== DYNAMIC PHOTO SYSTEM =====
 // TO ADD NEW PHOTOS: Just add the filename to this list!
 const photoList = [
-    "SaveClip.App_525973114_17925050178097312_1147935490967172034_n.jpg",
-    "SaveClip.App_524687279_17891629392291569_2392907753566285349_n.jpg", 
-    "SaveClip.App_524424505_17891629581291569_7204193818581872382_n.jpg",
-    "SaveClip.App_521003233_17891700453292519_877759951171763294_n.jpg",
-    "SaveClip.App_523946413_17891700384292519_5698979337809646333_n.jpg",
-    "SaveClip.App_524423493_17891700465292519_6184063264034292302_n.jpg",
-    "SaveClip.App_524427476_17891700345292519_8909883975469118969_n.jpg",
-    "SaveClip.App_524718160_17925049998097312_5504156817079472116_n.jpg",
     "spider-man-red-logo-4k-75gk9y4ena7trtqu.jpg",
     "spider-man-marvel-superheroes-3840x2160-1127.jpg",
     "IMG_20230228_085021-01-01.jpeg"
@@ -617,3 +609,4 @@ window.addEventListener('load', () => {
     setupParallax();
 
 }); 
+
