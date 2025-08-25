@@ -4,11 +4,11 @@
 🎨 DYNAMIC PHOTO SYSTEM - EASY PHOTO MANAGEMENT 🎨
 
 HOW TO ADD NEW PHOTOS:
-1. Upload your new photo to the same folder as index.html (root directory)
+1. Upload your new photo to the "photos" folder
 2. Add the filename to the 'photoList' array below
 3. That's it! Your photo will automatically appear on the website
 
-NOTE: Photos will first try to load from root directory, then fallback to photos/ folder
+NOTE: Photos will be loaded from the photos/ folder
 
 OPTIONAL CUSTOMIZATION:
 - Want custom title/description? Add it to the 'customDetails' object
@@ -29,9 +29,16 @@ customDetails = {
 // ===== DYNAMIC PHOTO SYSTEM =====
 // TO ADD NEW PHOTOS: Just add the filename to this list!
 const photoList = [
+    "SaveClip.App_525973114_17925050178097312_1147935490967172034_n.jpg",
+    "SaveClip.App_524687279_17891629392291569_2392907753566285349_n.jpg", 
+    "SaveClip.App_524424505_17891629581291569_7204193818581872382_n.jpg",
+    "SaveClip.App_521003233_17891700453292519_877759951171763294_n.jpg",
+    "SaveClip.App_523946413_17891700384292519_5698979337809646333_n.jpg",
+    "SaveClip.App_524423493_17891700465292519_6184063264034292302_n.jpg",
+    "SaveClip.App_524427476_17891700345292519_8909883975469118969_n.jpg",
+    "SaveClip.App_524718160_17925049998097312_5504156817079472116_n.jpg",
     "spider-man-red-logo-4k-75gk9y4ena7trtqu.jpg",
-    "spider-man-marvel-superheroes-3840x2160-1127.jpg",
-    "IMG_20230228_085021-01-01.jpeg"
+    "spider-man-marvel-superheroes-3840x2160-1127.jpg"
 ];
 
 // OPTIONAL: Custom titles and descriptions (override auto-generation)
@@ -47,10 +54,6 @@ const customDetails = {
         description: "An epic digital representation of the Marvel universe with advanced visual effects.",
         category: "portraits"
     }
-     "IMG_20230228_085021-01-01.jpeg": {
-        title: "Thrisa portrait", 
-        description: "An epic digital representation of the Marvel universe with advanced visual effects.",
-        category: "portraits"
     // Add more custom details here if needed
     // "your-photo.jpg": { title: "Your Title", description: "Your description", category: "portraits" }
 };
@@ -128,7 +131,7 @@ function generatePortfolioData() {
             id: index + 1,
             title: title,
             category: category,
-            image: `./${filename}`,
+            image: `./photos/${filename}`,
             description: description,
             likes: Math.floor(Math.random() * 500) + 50, // Random likes between 50-550
             saves: Math.floor(Math.random() * 200) + 20   // Random saves between 20-220
@@ -573,15 +576,9 @@ function handleImageLoading() {
         
         img.addEventListener('error', function() {
             console.warn('Image failed to load:', this.src);
-            // Try loading from photos directory as fallback
-            if (!this.src.includes('/photos/')) {
-                this.src = this.src.replace('./', './photos/');
-                console.log('Trying photos folder:', this.src);
-            } else {
-                // Final fallback to placeholder
-                console.log('Using placeholder for:', this.src);
-                this.src = 'https://via.placeholder.com/600x400/667eea/ffffff?text=Portfolio+Image';
-            }
+            // Use placeholder if image fails to load from photos folder
+            console.log('Using placeholder for:', this.src);
+            this.src = 'https://via.placeholder.com/600x400/667eea/ffffff?text=Portfolio+Image';
             this.style.opacity = '1';
         });
     });
@@ -593,12 +590,12 @@ function debugPhotoLoading() {
     console.log('Portfolio Data:', portfolioData);
     console.log('Photo List:', photoList);
     
-    // Test if photos exist
+    // Test if photos exist in photos folder
     photoList.forEach((filename, index) => {
         const img = new Image();
-        img.onload = () => console.log(`✅ Photo ${index + 1} loaded:`, filename);
-        img.onerror = () => console.log(`❌ Photo ${index + 1} failed:`, filename);
-        img.src = `./${filename}`;
+        img.onload = () => console.log(`✅ Photo ${index + 1} loaded from photos folder:`, filename);
+        img.onerror = () => console.log(`❌ Photo ${index + 1} failed from photos folder:`, filename);
+        img.src = `./photos/${filename}`;
     });
 }
 
@@ -611,7 +608,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // Initialize parallax effects
 window.addEventListener('load', () => {
     setupParallax();
-
 }); 
-
-
