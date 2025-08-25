@@ -181,24 +181,40 @@ function setupLoading() {
     const progressFill = document.querySelector('.progress-fill');
     const loadingPercentage = document.querySelector('.loading-percentage');
     
+    // Debug: Check if elements exist
+    console.log('Loading elements found:', {
+        loaderWrapper: !!loaderWrapper,
+        progressFill: !!progressFill,
+        loadingPercentage: !!loadingPercentage
+    });
+    
+    // Ensure loader is visible initially
+    if (loaderWrapper) {
+        loaderWrapper.style.display = 'flex';
+        loaderWrapper.style.opacity = '1';
+        loaderWrapper.style.visibility = 'visible';
+    }
+    
     let progress = 0;
     const loadingInterval = setInterval(() => {
-        progress += Math.random() * 15;
+        progress += Math.random() * 10 + 5; // More consistent progress increment
         
         if (progress >= 100) {
             progress = 100;
             clearInterval(loadingInterval);
             setTimeout(() => {
                 completeLoading();
-            }, 800);
+            }, 1000); // Give a bit more time to see 100%
         }
         
         updateLoadingProgress(progress, progressFill, loadingPercentage);
-    }, 200);
+    }, 150); // Slightly faster updates
 }
 
 function updateLoadingProgress(progress, progressFill, loadingPercentage) {
     const percentage = Math.min(progress, 100);
+    console.log('Loading progress:', percentage + '%'); // Debug log
+    
     if (progressFill) {
         progressFill.style.width = `${percentage}%`;
     }
@@ -208,12 +224,20 @@ function updateLoadingProgress(progress, progressFill, loadingPercentage) {
 }
 
 function completeLoading() {
+    console.log('Completing loading screen...'); // Debug log
+    
     if (loaderWrapper) {
         loaderWrapper.classList.add('fade-out');
         setTimeout(() => {
             loaderWrapper.style.display = 'none';
+            document.body.style.overflowY = 'auto'; // Enable vertical scrolling
+            document.body.style.overflowX = 'hidden'; // Keep horizontal scrolling disabled
             startEntryAnimations();
         }, 500);
+    } else {
+        console.error('Loader wrapper not found!');
+        // Fallback: just start animations
+        startEntryAnimations();
     }
 }
 
